@@ -5,7 +5,7 @@ export const WeSaidYes = () => {
   const engagementPhoto = '/we-said-yes.jpeg';
 
   return (
-    <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-paper overflow-hidden">
+    <section className="relative py-8 sm:py-12 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-paper overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="relative">
           <div className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden">
@@ -53,7 +53,7 @@ export const WeSaidYes = () => {
           </div>
         </div>
 
-        <div className="h-24 sm:h-28 md:h-32 lg:h-40" />
+        <div className="h-12 sm:h-20 md:h-32 lg:h-40" />
       </div>
     </section>
   );

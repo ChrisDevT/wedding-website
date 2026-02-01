@@ -38,16 +38,16 @@ export const Countdown = () => {
   ];
 
   return (
-    <div className="relative py-8 sm:py-12 px-4 sm:px-8">
+    <div className="relative py-6 sm:py-8 md:py-12 px-4 sm:px-8">
       <div className="max-w-5xl mx-auto">
-        {/* Mobile: 2x2 grid with clean layout */}
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:hidden">
+        {/* Mobile: Vertical single column layout */}
+        <div className="flex flex-col items-center gap-3 md:hidden">
           {timeUnits.map((unit, index) => (
-            <div key={index} className="flex flex-col items-center gap-2 py-4">
-              <div className="text-4xl sm:text-5xl font-serif italic text-dark-brown tabular-nums">
+            <div key={index} className="flex items-center justify-center gap-4 w-full">
+              <div className="text-4xl font-serif italic text-dark-brown tabular-nums w-16 text-right">
                 {String(unit.value).padStart(2, '0')}
               </div>
-              <div className="editorial-label text-bronze">{unit.label}</div>
+              <div className="editorial-label text-bronze w-20">{unit.label}</div>
             </div>
           ))}
         </div>
