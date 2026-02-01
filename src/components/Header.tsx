@@ -9,7 +9,7 @@ export const Header = () => {
     <div className="relative min-h-screen grid md:grid-cols-2 gap-0 overflow-hidden">
       <div className="relative h-[60vh] md:h-screen">
         <OrganicImage
-          src="/header.png"
+          src="/header.jpg"
           alt="Wedding celebration"
           edgeStyle={3}
           aspectRatio="aspect-[2/3] h-full"

@@ -2,7 +2,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 export const WeSaidYes = () => {
   const { t } = useLanguage();
-  const engagementPhoto = '/we-said-yes.jpeg';
+  const engagementPhoto = '/we-said-yes.jpg';
 
   return (
     <section className="relative py-8 sm:py-12 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-paper overflow-hidden">

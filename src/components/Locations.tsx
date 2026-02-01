@@ -24,7 +24,7 @@ export const Locations = () => {
             <div className="md:col-span-3 relative">
               <div className="aspect-[16/9] w-full overflow-hidden">
                 <OrganicImage
-                  src="/iglesia-san-juan.png"
+                  src="/iglesia-san-juan.jpg"
                   alt="Ceremony location"
                   edgeStyle={1}
                   aspectRatio="aspect-[16/9]"
@@ -83,7 +83,7 @@ export const Locations = () => {
             <div className="md:col-span-3 relative order-1 md:order-2">
               <div className="aspect-[16/9] w-full overflow-hidden">
                 <OrganicImage
-                  src="/casita-de-madera.jpeg"
+                  src="/casita-de-madera.jpg"
                   alt="Reception location"
                   edgeStyle={2}
                   aspectRatio="aspect-[16/9]"

@@ -14,6 +14,13 @@ export function FilmStrip() {
   const [photos, setPhotos] = useState<GalleryPhoto[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const text = {
+    en: { title: 'Our Moments', loading: 'Loading photos...', noPhotos: 'No photos yet' },
+    es: { title: 'Nuestros Momentos', loading: 'Cargando fotos...', noPhotos: 'No hay fotos aún' },
+    uk: { title: 'Наші Моменти', loading: 'Завантаження фото...', noPhotos: 'Ще немає фото' }
+  };
+  const t = text[language as 'en' | 'es' | 'uk'];
+
   useEffect(() => {
     loadGalleryPhotos();
   }, []);
@@ -54,10 +61,10 @@ export function FilmStrip() {
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-charcoal relative">
         <div className="px-4 sm:px-6 md:px-8">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display text-paper text-center mb-12 sm:mb-16 md:mb-20 tracking-wide">
-            {language === 'en' ? 'Our Moments' : 'Nuestros Momentos'}
+            {t.title}
           </h2>
           <div className="text-center text-paper/70">
-            {language === 'en' ? 'Loading photos...' : 'Cargando fotos...'}
+            {t.loading}
           </div>
         </div>
       </section>
@@ -68,12 +75,12 @@ export function FilmStrip() {
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-charcoal relative">
       <div className="px-4 sm:px-6 md:px-8">
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display text-paper text-center mb-12 sm:mb-16 md:mb-20 tracking-wide">
-          {language === 'en' ? 'Our Moments' : 'Nuestros Momentos'}
+          {t.title}
         </h2>
 
         {photos.length === 0 ? (
           <div className="text-center text-paper/70">
-            {language === 'en' ? 'No photos yet' : 'No hay fotos aún'}
+            {t.noPhotos}
           </div>
         ) : (
           <div className="columns-1 md:columns-2 lg:columns-3 gap-4 sm:gap-5 md:gap-6 max-w-7xl mx-auto space-y-4 sm:space-y-5 md:space-y-6">

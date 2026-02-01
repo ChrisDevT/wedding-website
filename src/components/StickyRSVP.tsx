@@ -5,6 +5,9 @@ export function StickyRSVP() {
   const [isVisible, setIsVisible] = useState(false);
   const { language } = useLanguage();
 
+  const buttonText = { en: 'RSVP', es: 'CONFIRMAR', uk: 'ПІДТВЕРДИТИ' };
+  const text = buttonText[language as 'en' | 'es' | 'uk'];
+
   useEffect(() => {
     const handleScroll = () => {
       const heroHeight = window.innerHeight;
@@ -29,7 +32,7 @@ export function StickyRSVP() {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >
-      {language === 'en' ? 'RSVP' : 'CONFIRMAR'}
+      {text}
     </button>
   );
 }
