@@ -42,7 +42,7 @@ export const Locations = () => {
                 </h3>
                 <p className="text-bronze text-base sm:text-lg mb-4 sm:mb-6">Málaga • 13:00</p>
                 <p className="text-sm sm:text-base text-dark-brown/80 mb-4 sm:mb-6 leading-relaxed">
-                  Join us for our ceremony at this historic church in the heart of Málaga.
+                  {t('locations.ceremonyDesc')}
                 </p>
                 <a
                   href="https://maps.app.goo.gl/E8kBGep5V9A3owd99"
@@ -50,7 +50,7 @@ export const Locations = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 min-h-[44px] text-xs sm:text-sm font-display tracking-wider text-stone-900 bg-transparent border border-stone-900 rounded-full hover:bg-stone-900 hover:text-white transition-all duration-300"
                 >
-                  VIEW MAP
+                  {t('locations.viewMap')}
                 </a>
               </div>
             </div>
@@ -67,7 +67,7 @@ export const Locations = () => {
                 </h3>
                 <p className="text-bronze text-base sm:text-lg mb-4 sm:mb-6">Churriana, Málaga • 14:40</p>
                 <p className="text-sm sm:text-base text-dark-brown/80 mb-4 sm:mb-6 leading-relaxed">
-                  Celebrate with us at this beautiful venue in the countryside of Málaga.
+                  {t('locations.receptionDesc')}
                 </p>
                 <a
                   href="https://maps.app.goo.gl/EHUbVzN6NQzAh8HK8"
@@ -75,7 +75,7 @@ export const Locations = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 min-h-[44px] text-xs sm:text-sm font-display tracking-wider text-stone-900 bg-transparent border border-stone-900 rounded-full hover:bg-stone-900 hover:text-white transition-all duration-300"
                 >
-                  VIEW MAP
+                  {t('locations.viewMap')}
                 </a>
               </div>
             </div>

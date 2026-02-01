@@ -40,10 +40,19 @@ export const DressCode = () => {
       ladies: 'Damas',
       ladiesRule: 'Vestimenta Elegante',
       ladiesDetail: 'Por favor, reserva el blanco y beige para la novia'
+    },
+    uk: {
+      title: 'Дрес-код',
+      gentlemen: 'Чоловіки',
+      gentlemenRule: 'Офіційний костюм',
+      gentlemenDetail: 'Будь ласка, одягніть офіційний костюм з краваткою або метеликом',
+      ladies: 'Жінки',
+      ladiesRule: 'Елегантний одяг',
+      ladiesDetail: 'Будь ласка, залиште білий та бежевий для нареченої'
     }
   };
 
-  const t = dressCodeText[language as 'en' | 'es'];
+  const t = dressCodeText[language as 'en' | 'es' | 'uk'];
 
   return (
     <div className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-paper">

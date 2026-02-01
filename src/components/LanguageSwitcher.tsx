@@ -4,7 +4,7 @@ export const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="fixed top-3 right-3 sm:top-6 sm:right-6 z-50">
+    <div className="absolute top-3 right-3 sm:top-6 sm:right-6 z-50">
       <div className="bg-cream/95 backdrop-blur-sm rounded-full shadow-md p-0.5 sm:p-1 flex items-center gap-0.5 sm:gap-1">
         <button
           onClick={() => setLanguage('en')}

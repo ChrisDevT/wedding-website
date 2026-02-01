@@ -31,7 +31,9 @@ const translations = {
       title: 'Where & When',
       ceremony: 'Ceremony',
       reception: 'Reception',
-      viewMap: 'View on Maps'
+      viewMap: 'View on Maps',
+      ceremonyDesc: 'Join us for our ceremony at this historic church in the heart of Málaga.',
+      receptionDesc: 'Celebrate with us at this beautiful venue in the countryside of Málaga.'
     },
     accommodation: {
       title: 'Where to Stay',
@@ -123,7 +125,9 @@ const translations = {
       title: 'Dónde y Cuándo',
       ceremony: 'Ceremonia',
       reception: 'Recepción',
-      viewMap: 'Ver en Mapas'
+      viewMap: 'Ver en Mapas',
+      ceremonyDesc: 'Acompáñanos a nuestra ceremonia en esta histórica iglesia en el corazón de Málaga.',
+      receptionDesc: 'Celebra con nosotros en este hermoso lugar en el campo de Málaga.'
     },
     accommodation: {
       title: 'Dónde Alojarse',
@@ -215,7 +219,9 @@ const translations = {
       title: 'Де і Коли',
       ceremony: 'Церемонія',
       reception: 'Банкет',
-      viewMap: 'Переглянути на карті'
+      viewMap: 'Переглянути на карті',
+      ceremonyDesc: 'Приєднуйтесь до нашої церемонії в цій історичній церкві в серці Малаги.',
+      receptionDesc: 'Святкуйте з нами в цьому чудовому місці в сільській місцевості Малаги.'
     },
     accommodation: {
       title: 'Де зупинитися',
