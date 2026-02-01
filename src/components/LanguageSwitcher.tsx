@@ -26,6 +26,16 @@ export const LanguageSwitcher = () => {
         >
           ES
         </button>
+        <button
+          onClick={() => setLanguage('uk')}
+          className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full transition-all text-xs sm:text-sm font-medium min-h-[36px] sm:min-h-[40px] ${
+            language === 'uk'
+              ? 'bg-caramel text-white'
+              : 'text-brown hover:bg-beige'
+          }`}
+        >
+          UA
+        </button>
       </div>
     </div>
   );

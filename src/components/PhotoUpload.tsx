@@ -77,10 +77,18 @@ export const PhotoUpload = () => {
       uploading: 'Subiendo...',
       success: '¡Foto subida exitosamente!',
       error: 'Error al subir la foto. Por favor, inténtalo de nuevo.'
+    },
+    uk: {
+      heading: 'Чи допоможете нам зберегти спогади?',
+      subtext: 'Будь ласка, завантажте фотографії з нашого особливого дня',
+      button: 'ЗАВАНТАЖИТИ ФОТО',
+      uploading: 'Завантаження...',
+      success: 'Фото успішно завантажено!',
+      error: 'Помилка завантаження. Спробуйте ще раз.'
     }
   };
 
-  const t = text[language as 'en' | 'es'];
+  const t = text[language as 'en' | 'es' | 'uk'];
 
   return (
     <div className="relative py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 bg-paper">
