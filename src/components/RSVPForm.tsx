@@ -1,13 +1,37 @@
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
-import { CheckCircle, AlertCircle } from 'lucide-react';
+import { CheckCircle, AlertCircle, X, Heart } from 'lucide-react';
 
 export const RSVPForm = () => {
   const { t, language } = useLanguage();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+
+  // Success modal translations
+  const successText = {
+    en: {
+      title: 'Thank You!',
+      subtitle: 'Your RSVP has been received',
+      message: 'We are so excited to celebrate with you!',
+      close: 'Close'
+    },
+    es: {
+      title: '¡Gracias!',
+      subtitle: 'Hemos recibido tu confirmación',
+      message: '¡Estamos muy emocionados de celebrar contigo!',
+      close: 'Cerrar'
+    },
+    uk: {
+      title: 'Дякуємо!',
+      subtitle: 'Вашу відповідь отримано',
+      message: 'Ми дуже раді святкувати з вами!',
+      close: 'Закрити'
+    }
+  };
+
+  const successT = successText[language as 'en' | 'es' | 'uk'];
 
   const [formData, setFormData] = useState({
     guest_name: '',
@@ -47,7 +71,8 @@ export const RSVPForm = () => {
         message: ''
       });
 
-      setTimeout(() => setSuccess(false), 5000);
+      // Scroll to top so user sees the modal
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       console.error('Error submitting RSVP:', err);
       setError(true);
@@ -67,10 +92,51 @@ export const RSVPForm = () => {
             </h2>
           </div>
 
+          {/* Success Modal Popup */}
           {success && (
-            <div className="mb-8 p-4 border-0.5 border-green-600 text-green-800 flex items-center gap-2">
-              <CheckCircle className="w-5 h-5" />
-              {t('rsvp.success')}
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 animate-fade-in">
+              <div className="relative bg-paper max-w-md w-full p-8 sm:p-12 text-center shadow-2xl border border-bronze/20 animate-slide-up">
+                {/* Close button */}
+                <button
+                  onClick={() => setSuccess(false)}
+                  className="absolute top-4 right-4 text-dark-brown/50 hover:text-dark-brown transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+
+                {/* Heart icon */}
+                <div className="flex justify-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center">
+                    <Heart className="w-8 h-8 text-bronze fill-bronze" />
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-3xl sm:text-4xl font-display text-dark-brown mb-3">
+                  {successT.title}
+                </h3>
+
+                {/* Subtitle */}
+                <p className="text-lg text-bronze mb-4 font-display tracking-wide">
+                  {successT.subtitle}
+                </p>
+
+                {/* Divider */}
+                <div className="w-16 h-px bg-bronze/30 mx-auto mb-4" />
+
+                {/* Message */}
+                <p className="text-dark-brown/70 mb-8 font-serif">
+                  {successT.message}
+                </p>
+
+                {/* Close button */}
+                <button
+                  onClick={() => setSuccess(false)}
+                  className="px-8 py-3 bg-charcoal text-paper font-display tracking-widest hover:bg-dark-brown transition-colors uppercase text-sm"
+                >
+                  {successT.close}
+                </button>
+              </div>
             </div>
           )}
 
