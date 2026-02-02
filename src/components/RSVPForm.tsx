@@ -21,27 +21,21 @@ export const RSVPForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted! Starting...'); // Debug
     setLoading(true);
     setError(false);
     setSuccess(false);
 
     try {
-      console.log('Sending to Supabase...', formData); // Debug
-      const { error: submitError, data } = await supabase
+      const { error: submitError } = await supabase
         .from('rsvps')
         .insert([{
           ...formData,
           language,
           updated_at: new Date().toISOString()
-        }])
-        .select();
-
-      console.log('Supabase response:', { error: submitError, data }); // Debug
+        }]);
 
       if (submitError) throw submitError;
 
-      console.log('Success! Data saved.'); // Debug
       setSuccess(true);
       setFormData({
         guest_name: '',
