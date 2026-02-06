@@ -13,6 +13,7 @@ import { DressCode } from './components/DressCode';
 import { RSVPForm } from './components/RSVPForm';
 import { PhotoUpload } from './components/PhotoUpload';
 import { AdminDashboard } from './components/AdminDashboard';
+import { MusicPlayer } from './components/MusicPlayer';
 
 function App() {
   const [showAdmin, setShowAdmin] = useState(false);
@@ -43,6 +44,7 @@ function App() {
     <LanguageProvider>
       <div className="min-h-screen bg-paper relative z-0">
         <LanguageSwitcher />
+        <MusicPlayer />
         <Header />
         <DateLocation />
         <WeSaidYes />
