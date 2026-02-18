@@ -3,25 +3,43 @@ import { Volume2, VolumeX } from 'lucide-react';
 
 export const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const hasTriedAutoplay = useRef(false);
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (audio) {
-      audio.volume = 0.3; // Start at 30% volume
+    if (!audio || hasTriedAutoplay.current) return;
 
-      const handleCanPlay = () => setIsLoaded(true);
-      const handleEnded = () => setIsPlaying(false);
+    audio.volume = 0.3;
+    hasTriedAutoplay.current = true;
 
-      audio.addEventListener('canplaythrough', handleCanPlay);
-      audio.addEventListener('ended', handleEnded);
+    // Try to autoplay immediately
+    audio.play()
+      .then(() => {
+        setIsPlaying(true);
+      })
+      .catch(() => {
+        // Autoplay blocked by browser — wait for first user interaction
+        const startOnInteraction = () => {
+          audio.play().then(() => {
+            setIsPlaying(true);
+          }).catch(() => {});
+          document.removeEventListener('click', startOnInteraction);
+          document.removeEventListener('touchstart', startOnInteraction);
+          document.removeEventListener('scroll', startOnInteraction);
+        };
 
-      return () => {
-        audio.removeEventListener('canplaythrough', handleCanPlay);
-        audio.removeEventListener('ended', handleEnded);
-      };
-    }
+        document.addEventListener('click', startOnInteraction, { once: true });
+        document.addEventListener('touchstart', startOnInteraction, { once: true });
+        document.addEventListener('scroll', startOnInteraction, { once: true });
+      });
+
+    const handleEnded = () => setIsPlaying(false);
+    audio.addEventListener('ended', handleEnded);
+
+    return () => {
+      audio.removeEventListener('ended', handleEnded);
+    };
   }, []);
 
   const togglePlay = () => {
@@ -30,12 +48,14 @@ export const MusicPlayer = () => {
 
     if (isPlaying) {
       audio.pause();
+      setIsPlaying(false);
     } else {
-      audio.play().catch(err => {
-        console.log('Autoplay prevented:', err);
+      audio.play().then(() => {
+        setIsPlaying(true);
+      }).catch(err => {
+        console.log('Play prevented:', err);
       });
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (

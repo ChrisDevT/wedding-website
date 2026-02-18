@@ -6,10 +6,10 @@ export const Schedule = () => {
 
   const events = [
     { time: '13:00', key: 'schedule.ceremony', icon: InterlockingRings },
-    { time: '14:40', key: 'schedule.reception', icon: ClinkingGlasses },
-    { time: '15:00', key: 'schedule.entrada', icon: SparklesStars },
-    { time: '16:00', key: 'schedule.comida', icon: PlateAndCutlery },
-    { time: '17:30', key: 'schedule.fiesta', icon: MusicNotes }
+    { time: '15:00', key: 'schedule.reception', icon: ClinkingGlasses },
+    { time: '15:30', key: 'schedule.entrada', icon: SparklesStars },
+    { time: '16:45', key: 'schedule.comida', icon: PlateAndCutlery },
+    { time: '19:00', key: 'schedule.fiesta', icon: MusicNotes }
   ];
 
   return (

@@ -65,7 +65,7 @@ export const Locations = () => {
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-dark-brown mb-2 sm:mb-3 leading-tight">
                   La Casita de Madera
                 </h3>
-                <p className="text-bronze text-base sm:text-lg mb-4 sm:mb-6">Churriana, Málaga • 14:40</p>
+                <p className="text-bronze text-base sm:text-lg mb-4 sm:mb-6">Churriana, Málaga • 15:00</p>
                 <p className="text-sm sm:text-base text-dark-brown/80 mb-4 sm:mb-6 leading-relaxed">
                   {t('locations.receptionDesc')}
                 </p>
