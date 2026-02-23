@@ -8,11 +8,12 @@ interface GalleryPhoto {
 }
 
 const galleryPhotos: GalleryPhoto[] = [
-  { id: '1', src: '/header.jpg', aspect: 'wide', alt: 'Wedding celebration' },
-  { id: '2', src: '/we-said-yes.jpg', aspect: 'wide', alt: 'We said yes' },
-  { id: '3', src: '/iglesia-san-juan.jpg', aspect: 'wide', alt: 'Ceremony venue' },
-  { id: '4', src: '/casita-de-madera.jpg', aspect: 'wide', alt: 'Reception venue' },
-  { id: '5', src: '/photo-upload.jpg', aspect: 'tall', alt: 'Couple photo' },
+  { id: '1', src: '/gallery1.jpg', aspect: 'tall', alt: 'Engagement ring at the beach' },
+  { id: '2', src: '/gallery2.jpg', aspect: 'tall', alt: 'Together in Bali rice terraces' },
+  { id: '3', src: '/gallery3.jpg', aspect: 'tall', alt: 'Adventure on the volcano' },
+  { id: '4', src: '/gallery4.jpg', aspect: 'tall', alt: 'Kiss on the beach' },
+  { id: '5', src: '/gallery5.jpg', aspect: 'tall', alt: 'Selfie with mountain views' },
+  { id: '6', src: '/gallery6.jpg', aspect: 'wide', alt: 'Romantic moment on the balcony' },
 ];
 
 export function FilmStrip() {
