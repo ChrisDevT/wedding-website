@@ -12,8 +12,8 @@ const galleryPhotos: GalleryPhoto[] = [
   { id: '2', src: '/gallery2.jpg', aspect: 'tall', alt: 'Together in Bali rice terraces' },
   { id: '3', src: '/gallery3.jpg', aspect: 'tall', alt: 'Adventure on the volcano' },
   { id: '4', src: '/gallery4.jpg', aspect: 'tall', alt: 'Kiss on the beach' },
-  { id: '5', src: '/gallery5.jpg', aspect: 'tall', alt: 'Selfie with mountain views' },
-  { id: '6', src: '/gallery6.jpg', aspect: 'wide', alt: 'Romantic moment on the balcony' },
+  { id: '5', src: '/gallery5.jpg', aspect: 'tall', alt: 'Heart frame by the waterfall' },
+  { id: '6', src: '/gallery6.jpg', aspect: 'wide', alt: 'Swings over turquoise water' },
 ];
 
 export function FilmStrip() {
