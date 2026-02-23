@@ -99,6 +99,18 @@ export const AdminDashboard = () => {
     setPassword('');
   };
 
+  const handleDeleteRsvp = async (rsvpId: string) => {
+    if (!confirm('Are you sure you want to delete this RSVP?')) return;
+
+    try {
+      await supabase.from('rsvps').delete().eq('id', rsvpId);
+      loadRSVPs();
+    } catch (err) {
+      console.error('Error deleting RSVP:', err);
+      alert('Error deleting RSVP');
+    }
+  };
+
   const handleDeletePhoto = async (photoId: string, filePath: string) => {
     if (!confirm('Are you sure you want to delete this photo?')) return;
 
@@ -281,6 +293,7 @@ export const AdminDashboard = () => {
                         <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Plus One</th>
                         <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Dietary</th>
                         <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Lang</th>
+                        <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700"></th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -304,6 +317,15 @@ export const AdminDashboard = () => {
                           </td>
                           <td className="px-6 py-4 text-sm text-gray-600 uppercase">
                             {rsvp.language}
+                          </td>
+                          <td className="px-6 py-4 text-sm">
+                            <button
+                              onClick={() => handleDeleteRsvp(rsvp.id)}
+                              className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-lg flex items-center gap-1 text-xs"
+                            >
+                              <Trash2 className="w-3 h-3" />
+                              Delete
+                            </button>
                           </td>
                         </tr>
                       ))}

@@ -1,51 +1,29 @@
-import { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { supabase } from '../lib/supabase';
 
 interface GalleryPhoto {
   id: string;
-  file_path: string;
-  aspect_ratio: string;
-  caption: string | null;
+  src: string;
+  aspect: string;
+  alt: string;
 }
+
+const galleryPhotos: GalleryPhoto[] = [
+  { id: '1', src: '/header.jpg', aspect: 'wide', alt: 'Wedding celebration' },
+  { id: '2', src: '/we-said-yes.jpg', aspect: 'wide', alt: 'We said yes' },
+  { id: '3', src: '/iglesia-san-juan.jpg', aspect: 'wide', alt: 'Ceremony venue' },
+  { id: '4', src: '/casita-de-madera.jpg', aspect: 'wide', alt: 'Reception venue' },
+  { id: '5', src: '/photo-upload.jpg', aspect: 'tall', alt: 'Couple photo' },
+];
 
 export function FilmStrip() {
   const { language } = useLanguage();
-  const [photos, setPhotos] = useState<GalleryPhoto[]>([]);
-  const [loading, setLoading] = useState(true);
 
   const text = {
-    en: { title: 'Our Moments', loading: 'Loading photos...', noPhotos: 'No photos yet' },
-    es: { title: 'Nuestros Momentos', loading: 'Cargando fotos...', noPhotos: 'No hay fotos aún' },
-    uk: { title: 'Наші Моменти', loading: 'Завантаження фото...', noPhotos: 'Ще немає фото' }
+    en: { title: 'Our Moments' },
+    es: { title: 'Nuestros Momentos' },
+    uk: { title: 'Наші Моменти' }
   };
   const t = text[language as 'en' | 'es' | 'uk'];
-
-  useEffect(() => {
-    loadGalleryPhotos();
-  }, []);
-
-  const loadGalleryPhotos = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('wedding_photos')
-        .select('id, file_path, aspect_ratio, caption')
-        .eq('category', 'gallery')
-        .order('display_order', { ascending: true });
-
-      if (error) throw error;
-      setPhotos(data || []);
-    } catch (err) {
-      console.error('Error loading gallery photos:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const getPhotoUrl = (path: string) => {
-    const { data } = supabase.storage.from('wedding-photos').getPublicUrl(path);
-    return data.publicUrl;
-  };
 
   const getAspectClass = (aspect: string) => {
     switch (aspect) {
@@ -56,21 +34,6 @@ export function FilmStrip() {
     }
   };
 
-  if (loading) {
-    return (
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-charcoal relative">
-        <div className="px-4 sm:px-6 md:px-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display text-paper text-center mb-12 sm:mb-16 md:mb-20 tracking-wide">
-            {t.title}
-          </h2>
-          <div className="text-center text-paper/70">
-            {t.loading}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-charcoal relative">
       <div className="px-4 sm:px-6 md:px-8">
@@ -78,29 +41,23 @@ export function FilmStrip() {
           {t.title}
         </h2>
 
-        {photos.length === 0 ? (
-          <div className="text-center text-paper/70">
-            {t.noPhotos}
-          </div>
-        ) : (
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-4 sm:gap-5 md:gap-6 max-w-7xl mx-auto space-y-4 sm:space-y-5 md:space-y-6">
-            {photos.map((photo) => (
-              <div
-                key={photo.id}
-                className="break-inside-avoid group cursor-pointer"
-              >
-                <div className={`relative ${getAspectClass(photo.aspect_ratio)} overflow-hidden bg-bronze/10 transition-all duration-500 group-hover:-translate-y-2`}>
-                  <img
-                    src={getPhotoUrl(photo.file_path)}
-                    alt={photo.caption || 'Wedding memory'}
-                    className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
-                    style={{ filter: 'brightness(0.95)' }}
-                  />
-                </div>
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 sm:gap-5 md:gap-6 max-w-7xl mx-auto space-y-4 sm:space-y-5 md:space-y-6">
+          {galleryPhotos.map((photo) => (
+            <div
+              key={photo.id}
+              className="break-inside-avoid group cursor-pointer"
+            >
+              <div className={`relative ${getAspectClass(photo.aspect)} overflow-hidden bg-bronze/10 transition-all duration-500 group-hover:-translate-y-2`}>
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
+                  style={{ filter: 'brightness(0.95)' }}
+                />
               </div>
-            ))}
-          </div>
-        )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
