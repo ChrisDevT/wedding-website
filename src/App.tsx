@@ -10,7 +10,7 @@ import { Schedule } from './components/Schedule';
 import { FilmStrip } from './components/FilmStrip';
 import { Accommodation } from './components/Accommodation';
 import { DressCode } from './components/DressCode';
-import { RSVPForm } from './components/RSVPForm';
+import { WhatsAppRSVP } from './components/WhatsAppRSVP';
 import { PhotoUpload } from './components/PhotoUpload';
 import { AdminDashboard } from './components/AdminDashboard';
 import { MusicPlayer } from './components/MusicPlayer';
@@ -54,7 +54,7 @@ function App() {
         <FilmStrip />
         <Accommodation />
         <DressCode />
-        <RSVPForm />
+        <WhatsAppRSVP />
         <PhotoUpload />
 
         <footer className="py-16 border-t-0.5 border-bronze/20 bg-charcoal">
