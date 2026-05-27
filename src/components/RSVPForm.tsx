@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { supabase } from '../lib/supabase';
-import { CheckCircle, AlertCircle, X, Heart } from 'lucide-react';
+import { AlertCircle, X, Heart } from 'lucide-react';
 
 export const RSVPForm = () => {
   const { t, language } = useLanguage();

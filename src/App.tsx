@@ -12,6 +12,7 @@ import { Accommodation } from './components/Accommodation';
 import { DressCode } from './components/DressCode';
 import { WhatsAppRSVP } from './components/WhatsAppRSVP';
 import { PhotoUpload } from './components/PhotoUpload';
+import { GuestGallery } from './components/GuestGallery';
 import { AdminDashboard } from './components/AdminDashboard';
 import { MusicPlayer } from './components/MusicPlayer';
 
@@ -56,6 +57,7 @@ function App() {
         <DressCode />
         <WhatsAppRSVP />
         <PhotoUpload />
+        <GuestGallery />
 
         <footer className="py-16 border-t-0.5 border-bronze/20 bg-charcoal">
           <div className="text-center">
